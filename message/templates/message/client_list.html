@@ -1,0 +1,45 @@
+{% extends 'message/base.html' %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Клиенты</h1>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        <p>
+            <a class="btn btn-lg btn-block btn-outline-warning"
+               href="{% url 'message:client_create' %}"
+               role="button">Добавить клиента</a>
+        </p>
+
+        <div class="row">
+            {% if not object_list %}
+            <div class="col-12">
+                <h1 class="text-body-secondary">
+                Клиентов пока не добавлены
+                </h1>
+            </div>
+            {% endif %}
+            {% for client in object_list %}
+            <div class="col-6">
+                <div class="card mb-4 box-shadow" style="width: 600px; height: 90px">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-7 d-flex align-items-center justify-content-center">
+                                <h4 class="my-0 font-weight-normal">{{ client.name }}</h4>
+                            </div>
+                            <div class="col-5">
+                                    <a class="btn btn-lg btn-block btn-outline-primary form-control"
+                                       style="float: right;" href="{% url 'message:client_detail' client.pk %}"
+                                       role="button">О клиенте</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+    {% endblock %}

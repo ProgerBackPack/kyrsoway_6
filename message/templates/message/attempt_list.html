@@ -1,0 +1,54 @@
+{% extends 'message/base.html' %}
+{% load my_tags1 %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Отчет по отправке {{ mailing }} </h1>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+
+        <div class="row">
+            <p>
+                <a class="btn btn-lg btn-block btn-outline-primary"
+                   href="{% url 'message:mailinglist_detail' mailing.pk %} "
+                   role="button">Назад</a>
+            </p>
+        </div>
+        {% if not attempts %}
+        <div class="col-12">
+            <h1 class="text-body-secondary">
+                Отчетов пока что нет
+            </h1>
+        </div>
+        {% else %}
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Последняя попытка отправки</th>
+                <th scope="col">Статус попытки</th>
+                <th scope="col">Ответ почтового сервера</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for attempt in attempts %}
+            <tr>
+                <th scope="row">{{ numbers | get_number }}</th>
+                <td>{{ attempt.date_time_last_attempt }}</td>
+                <td>{{ attempt.status }}</td>
+                <td>{{ attempt.mail_server_response }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+
+    </div>
+
+
+
+{% endblock %}

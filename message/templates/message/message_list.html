@@ -1,0 +1,53 @@
+{% extends 'message/base.html' %}
+{% block content %}
+{% if user.is_authenticated and not user.is_staff or user.is_superuser %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Cообщения для рассылки</h1>
+</div>
+{% endif %}
+
+<div class="container">
+    <div class="row text-center">
+        <p>
+            {% if user.is_authenticated and not user.is_staff or user.is_superuser%}
+            <a class="btn btn-lg btn-block btn-outline-warning"
+               href="{% url 'message:message_create' %}"
+               role="button">Новое сообщение</a>
+            {% endif %}
+        </p>
+        <div class="row">
+            {% if not object_list and not user.is_staff %}
+            <div class="col-12">
+                <h1 class="text-body-secondary">
+                    Сообщения пока не созданы
+                </h1>
+            </div>
+            {% else %}
+            {% for message in object_list %}
+            <div class="col-6">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-7 d-flex align-items-center justify-content-center">
+                                <h4 class="my-0 font-weight-normal">{{ message.title_letter | truncatechars:60 }}</h4>
+                            </div>
+                            <div class="col-5">
+                                <div class="d-grid gap-2">
+                                    <a class="btn btn-lg btn-block btn-outline-success form-control"
+                                       style="float: right;" href="{% url 'message:mailinglist_create' %}?id={{ message.id}}"
+                                       role="button">Создать рассылку</a>
+                                    <a class="btn btn-lg btn-block btn-outline-primary form-control"
+                                       style="float: right;" href="{% url 'message:message_detail' message.pk %}"
+                                       role="button">О сообщение</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    {% endblock %}

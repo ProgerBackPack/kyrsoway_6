@@ -1,0 +1,30 @@
+{% extends 'message/base.html' %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Информация о клиенте</h1>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <h4>Ф.И.О.:</h4>
+                    <h3> {{ client.name }}</h3>
+                    <h4>Email:</h4>
+                    <p>{{ client.email }}</p>
+                    <h4>Комментарий:</h4>
+                    <p>{{ client.comment }}</p>
+                    <a class="btn btn-primary" href="{% url 'message:client_update' client.pk %}" role="button">Изменить</a>
+                    <a class="btn btn-danger" href="{% url 'message:client_delete' client.pk %}" role="button">Удалить</a>
+                    <br>
+                    <br>
+                    <a class="btn btn-outline-primary" href="{% url 'message:client_view' %}" role="button">Назад</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'message/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Сервис для создания рассылок</h1>
+</div>
+<div class="row text-center">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">
+                    <h4> Всего рассылок</h4>
+                </th>
+                <th scope="col">
+                    <h4>Всего клиентов для рассылок</h4>
+                </th>
+                <th scope="col">
+                    <h4>Активных рассылок</h4>
+                </th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><h4>{{ total_mailings }}</h4></td>
+                <td><h4>{{ total_clients }}</h4></td>
+                <td><h4>{{ total_active_mailings }}</h4></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row text-center">
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4> {{ blog.tittle }} </h4>
+                    </div>
+
+                    <div class="card-body">
+                        {% if blog.images %}
+                        <img src="{{ blog.images| mymedia }}" style="width: 200px; height: 150px">
+                        {% else %}
+                        <img src="/media/dd70ce88-0468-427b-9b4b-e3b4b4ddf6f0.jpeg"
+                             style="width: 200px; height: 150px">
+                        {% endif %}
+                        <br>
+                        <br>
+                        <p> {{ blog.content_article | truncatechars:50 }}</p>
+                        <a class="btn btn-lg btn-block btn-outline-primary"
+                       href="{% url 'blog:blog_detail' blog.pk %}"
+                       role="button">Подробнее</a>
+                    </div>
+
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    {% endblock %}

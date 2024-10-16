@@ -1,0 +1,43 @@
+{% extends 'message/base.html' %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">
+        {% if object %}
+        Изменение сообщения
+        {% else %}
+        Новое сообщение
+        {% endif %}
+    </h1>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-success">
+                            {% if object %}
+                            Обновить
+                            {% else %}
+                            Создать
+                            {% endif %}
+                        </button>
+                        {% if object %}
+                        <a class="btn btn-outline-primary" href="{% url 'message:message_detail' object.pk %}"
+                           role="button">Отмена</a>
+                        {% else %}
+                        <a class="btn btn-outline-primary" href="{% url 'message:message_view' %}"
+                           role="button">Отмена</a>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}
