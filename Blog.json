@@ -1,0 +1,35 @@
+[
+  {
+    "model": "blog.blog",
+    "pk": 5,
+    "fields": {
+      "tittle": "Статья 1",
+      "content_article": "Привет, это сервис рассылок",
+      "images": "media/blog/рука.png",
+      "count_view": 0,
+      "published_date": "2024-10-16"
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 6,
+    "fields": {
+      "tittle": "Статья 2",
+      "content_article": "Мы отправляем письма",
+      "images": "media/blog/все_работает.jpeg",
+      "count_view": 0,
+      "published_date": "2024-10-16"
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 7,
+    "fields": {
+      "tittle": "Статья 3",
+      "content_article": "Отправляй рассылки через наш сервис",
+      "images": "media/blog/pismo.jpg",
+      "count_view": 0,
+      "published_date": "2024-10-16"
+    }
+  }
+]

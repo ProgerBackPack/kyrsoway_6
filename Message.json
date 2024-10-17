@@ -1,0 +1,138 @@
+[
+  {
+    "model": "message.message",
+    "pk": 1,
+    "fields": {
+      "title_letter": "Рассылка для Test1",
+      "body_letter": "Привет!",
+      "owner": 6
+    }
+  },
+  {
+    "model": "message.message",
+    "pk": 2,
+    "fields": {
+      "title_letter": "Рассылка 2 тест",
+      "body_letter": "Привет-привет, пока- пока",
+      "owner": 7
+    }
+  },
+  {
+    "model": "message.message",
+    "pk": 3,
+    "fields": {
+      "title_letter": "Рассылка тест3",
+      "body_letter": "Здравствуйте!",
+      "owner": 8
+    }
+  },
+  {
+    "model": "message.message",
+    "pk": 4,
+    "fields": {
+      "title_letter": "Рассылка тест4",
+      "body_letter": "как ваши дела?",
+      "owner": 9
+    }
+  },
+  {
+    "model": "message.client",
+    "pk": 1,
+    "fields": {
+      "name": "Клиент1",
+      "email": "test@test.ru",
+      "comment": "я 1ый клиент",
+      "owner": 6
+    }
+  },
+  {
+    "model": "message.client",
+    "pk": 2,
+    "fields": {
+      "name": "Клиент2",
+      "email": "test_client@test.ru",
+      "comment": "я 2ой клиент",
+      "owner": 7
+    }
+  },
+  {
+    "model": "message.client",
+    "pk": 3,
+    "fields": {
+      "name": "клиент3",
+      "email": "test_client3@test.ru",
+      "comment": "я 3ий клиент",
+      "owner": 8
+    }
+  },
+  {
+    "model": "message.client",
+    "pk": 4,
+    "fields": {
+      "name": "клиент4",
+      "email": "test_client4@test.ru",
+      "comment": "я 4ый клиент",
+      "owner": 9
+    }
+  },
+  {
+    "model": "message.mailinglist",
+    "pk": 1,
+    "fields": {
+      "date_and_time_of_sending": "2024-10-17T10:00:00Z",
+      "message": 1,
+      "periodicity": "Раз в день",
+      "status": "Завершена",
+      "next_date": "2024-10-17T10:00:00Z",
+      "owner": 6,
+      "clients": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "message.mailinglist",
+    "pk": 2,
+    "fields": {
+      "date_and_time_of_sending": "2024-10-17T11:00:00Z",
+      "message": 2,
+      "periodicity": "Раз в месяц",
+      "status": "Завершена",
+      "next_date": "2024-10-17T11:00:00Z",
+      "owner": 7,
+      "clients": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "message.mailinglist",
+    "pk": 3,
+    "fields": {
+      "date_and_time_of_sending": "2024-10-17T12:10:09Z",
+      "message": 3,
+      "periodicity": "Раз в неделю",
+      "status": "Завершена",
+      "next_date": "2024-10-17T12:10:09Z",
+      "owner": 8,
+      "clients": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "message.mailinglist",
+    "pk": 4,
+    "fields": {
+      "date_and_time_of_sending": "2024-10-17T10:30:17Z",
+      "message": 4,
+      "periodicity": "Раз в неделю",
+      "status": "Завершена",
+      "next_date": "2024-10-17T10:30:17Z",
+      "owner": 9,
+      "clients": [
+        4
+      ]
+    }
+  }
+]
